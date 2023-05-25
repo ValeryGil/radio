@@ -34,15 +34,15 @@ public class Radio {
     }
 
     public void nextStation() {
-        if (currentRadio > 9) {
+        if (currentRadio > 8) {
         }
-        currentRadio = minRadio;
+        currentRadio = 0;
     }
 
     public void prevStation() {
-        if (currentRadio < 0) {
+        if (currentRadio < 1) {
         }
-        currentRadio = maxRadio;
+        currentRadio = 9;
     }
 
     public int getCurrentVolume() {
