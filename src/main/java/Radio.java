@@ -1,14 +1,34 @@
 public class Radio {
 
-    private int currentRadio;
+    private int maxRadio = 9;
+    private int minRadio = 0;
+    private int currentRadio = minRadio;
     private int currentVolume;
+
+    public Radio(int minRadio, int maxRadio) {
+        this.minRadio = minRadio;
+        this.maxRadio = maxRadio;
+        this.currentRadio = minRadio;
+    }
+
+    public Radio(int size) {
+        maxRadio = minRadio + size;
+    }
 
     public int getCurrentRadio() {
         return currentRadio;
     }
 
+    public int getMaxRadio() {
+        return maxRadio;
+    }
+
+    public int getMinRadio() {
+        return minRadio;
+    }
+
     public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio > 0 && newCurrentRadio < 9) {
+        if (newCurrentRadio > minRadio && newCurrentRadio < maxRadio) {
         }
         currentRadio = newCurrentRadio;
     }
