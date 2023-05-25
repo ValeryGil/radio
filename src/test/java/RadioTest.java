@@ -4,8 +4,22 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void setRadio() {
+    public void testLombok() {
         Radio radio = new Radio();
+    }
+
+    @Test
+    public void testRadio() {
+        Radio radio = new Radio(9);
+
+        Assertions.assertEquals(0, radio.getMinRadio());
+        Assertions.assertEquals(9, radio.getMaxRadio());
+        Assertions.assertEquals(0, radio.getCurrentRadio());
+    }
+
+    @Test
+    public void setRadio() {
+        Radio radio = new Radio(0, 9);
 
         radio.setCurrentRadio(5);
 
@@ -17,7 +31,7 @@ public class RadioTest {
 
     @Test
     public void setNextRadioTrue() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9);
 
         radio.setCurrentRadio(9);
         radio.nextStation();
@@ -30,7 +44,7 @@ public class RadioTest {
 
     @Test
     public void setNextRadioFalse() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9);
 
         radio.setCurrentRadio(5);
         radio.nextStation();
@@ -43,7 +57,7 @@ public class RadioTest {
 
     @Test
     public void setPrevRadioTrue() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9);
 
         radio.setCurrentRadio(0);
         radio.prevStation();
@@ -56,7 +70,7 @@ public class RadioTest {
 
     @Test
     public void setPrevRadioFalse() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 9);
 
         radio.setCurrentRadio(7);
         radio.prevStation();
@@ -69,7 +83,7 @@ public class RadioTest {
 
     @Test
     public void setVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 100);
 
         radio.setCurrentVolume(55);
 
@@ -81,7 +95,7 @@ public class RadioTest {
 
     @Test
     public void increaseVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 100);
 
         radio.setCurrentVolume(1);
         radio.increaseVolume();
@@ -94,7 +108,7 @@ public class RadioTest {
 
     @Test
     public void increaseMaxVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 100);
 
         radio.setCurrentVolume(101);
         radio.increaseVolume();
@@ -107,7 +121,7 @@ public class RadioTest {
 
     @Test
     public void increaseMinVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 100);
 
         radio.setCurrentVolume(-1);
         radio.increaseVolume();
@@ -120,7 +134,7 @@ public class RadioTest {
 
     @Test
     public void setMaxVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 100);
 
         radio.setCurrentVolume(100);
         radio.maxVolume();
@@ -133,7 +147,7 @@ public class RadioTest {
 
     @Test
     public void setMinVolume() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(0, 100);
 
         radio.setCurrentVolume(0);
         radio.minVolume();
