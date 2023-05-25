@@ -5,6 +5,23 @@ public class Radio {
     private int currentRadio = minRadio;
     private int currentVolume;
 
+    public Radio() {
+    }
+
+    public Radio(int maxRadio, int minRadio, int currentRadio) {
+        this.maxRadio = maxRadio;
+        this.minRadio = minRadio;
+        this.currentRadio = currentRadio;
+    }
+
+    public void setMaxRadio(int maxRadio) {
+        this.maxRadio = maxRadio;
+    }
+
+    public void setMinRadio(int minRadio) {
+        this.minRadio = minRadio;
+    }
+
     public Radio(int minRadio, int maxRadio) {
         this.minRadio = minRadio;
         this.maxRadio = maxRadio;
