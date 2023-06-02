@@ -10,16 +10,29 @@ public class RadioTest {
 
     @Test
     public void testRadio() {
-        Radio radio = new Radio(9);
+        Radio radio = new Radio(5);
+
+        radio.setCurrentRadio(5);
 
         Assertions.assertEquals(0, radio.getMinRadio());
         Assertions.assertEquals(9, radio.getMaxRadio());
-        Assertions.assertEquals(0, radio.getCurrentRadio());
+        Assertions.assertEquals(5, radio.getCurrentRadio());
+    }
+
+    @Test
+    public void testVolume() {
+        Radio radio = new Radio();
+
+        radio.setCurrentVolume(55);
+
+        Assertions.assertEquals(0, radio.getMinVolume());
+        Assertions.assertEquals(100, radio.getMaxVolume());
+        Assertions.assertEquals(55, radio.getCurrentVolume());
     }
 
     @Test
     public void setRadio() {
-        Radio radio = new Radio(0, 9);
+        Radio radio = new Radio();
 
         radio.setCurrentRadio(5);
 
@@ -31,7 +44,7 @@ public class RadioTest {
 
     @Test
     public void setNextRadioTrue() {
-        Radio radio = new Radio(0, 9);
+        Radio radio = new Radio();
 
         radio.setCurrentRadio(9);
         radio.nextStation();
@@ -44,7 +57,7 @@ public class RadioTest {
 
     @Test
     public void setNextRadioFalse() {
-        Radio radio = new Radio(0, 9);
+        Radio radio = new Radio();
 
         radio.setCurrentRadio(5);
         radio.nextStation();
@@ -57,7 +70,7 @@ public class RadioTest {
 
     @Test
     public void setPrevRadioTrue() {
-        Radio radio = new Radio(0, 9);
+        Radio radio = new Radio();
 
         radio.setCurrentRadio(0);
         radio.prevStation();
@@ -70,7 +83,7 @@ public class RadioTest {
 
     @Test
     public void setPrevRadioFalse() {
-        Radio radio = new Radio(0, 9);
+        Radio radio = new Radio();
 
         radio.setCurrentRadio(7);
         radio.prevStation();
@@ -83,7 +96,7 @@ public class RadioTest {
 
     @Test
     public void setVolume() {
-        Radio radio = new Radio(0, 100);
+        Radio radio = new Radio();
 
         radio.setCurrentVolume(55);
 
@@ -95,7 +108,7 @@ public class RadioTest {
 
     @Test
     public void increaseVolume() {
-        Radio radio = new Radio(0, 100);
+        Radio radio = new Radio();
 
         radio.setCurrentVolume(1);
         radio.increaseVolume();
@@ -108,7 +121,7 @@ public class RadioTest {
 
     @Test
     public void increaseMaxVolume() {
-        Radio radio = new Radio(0, 100);
+        Radio radio = new Radio();
 
         radio.setCurrentVolume(101);
         radio.increaseVolume();
@@ -121,7 +134,7 @@ public class RadioTest {
 
     @Test
     public void increaseMinVolume() {
-        Radio radio = new Radio(0, 100);
+        Radio radio = new Radio();
 
         radio.setCurrentVolume(-1);
         radio.increaseVolume();
@@ -134,7 +147,7 @@ public class RadioTest {
 
     @Test
     public void setMaxVolume() {
-        Radio radio = new Radio(0, 100);
+        Radio radio = new Radio();
 
         radio.setCurrentVolume(100);
         radio.maxVolume();
@@ -147,7 +160,7 @@ public class RadioTest {
 
     @Test
     public void setMinVolume() {
-        Radio radio = new Radio(0, 100);
+        Radio radio = new Radio();
 
         radio.setCurrentVolume(0);
         radio.minVolume();
