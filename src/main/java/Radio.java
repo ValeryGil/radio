@@ -8,31 +8,29 @@ public class Radio {
     }
 
     public void setCurrentRadio(int newCurrentRadio) {
-        if (newCurrentRadio > 0 && newCurrentRadio < 9) {
+        if (newCurrentRadio < 0) {
+            return;
+        }
+        if (newCurrentRadio > 9) {
+            return;
         }
         currentRadio = newCurrentRadio;
     }
 
     public void increaseRadio() {
-        if (currentRadio < 9 && currentRadio >= 0) {
+        if (currentRadio < 9) {
             currentRadio = currentRadio + 1;
         }
-        if (currentRadio > 9) {
+        if (currentRadio > 8) {
             currentRadio = 0;
-        }
-        if (currentRadio < 0) {
-            currentRadio = 9;
         }
     }
 
     public void decreaseRadio() {
-        if (currentRadio <= 9 && currentRadio > 0) {
+        if (currentRadio > 0) {
             currentRadio = currentRadio - 1;
         }
-        if (currentRadio > 9) {
-            currentRadio = 0;
-        }
-        if (currentRadio < 0) {
+        if (currentRadio < 1) {
             currentRadio = 9;
         }
     }
@@ -46,31 +44,29 @@ public class Radio {
     }
 
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 0 && newCurrentVolume < 100) {
+        if (newCurrentVolume < 0) {
+            return;
+        }
+        if (newCurrentVolume > 100) {
+            return;
         }
         currentVolume = newCurrentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100 && currentVolume >= 0) {
+        if (currentVolume < 100) {
             currentVolume = currentVolume + 1;
         }
-        if (currentVolume > 100) {
+        if (currentVolume > 99) {
             currentVolume = 100;
-        }
-        if (currentVolume < 0) {
-            currentVolume = 0;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume <= 100 && currentVolume > 0) {
+        if (currentVolume > 0) {
             currentVolume = currentVolume - 1;
         }
-        if (currentVolume > 100) {
-            currentVolume = 100;
-        }
-        if (currentVolume < 0) {
+        if (currentVolume < 1) {
             currentVolume = 0;
         }
     }
