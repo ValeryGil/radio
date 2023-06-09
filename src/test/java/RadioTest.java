@@ -43,10 +43,10 @@ public class RadioTest {
     public void increaseRadio() {
         Radio radio = new Radio();
 
-        radio.setCurrentRadio(1);
+        radio.setCurrentRadio(8);
         radio.increaseRadio();
 
-        int expected = 2;
+        int expected = 9;
         int actual = radio.getCurrentRadio();
 
         Assertions.assertEquals(expected, actual);
@@ -69,10 +69,10 @@ public class RadioTest {
     public void decreaseRadio() {
         Radio radio = new Radio();
 
-        radio.setCurrentRadio(2);
+        radio.setCurrentRadio(9);
         radio.decreaseRadio();
 
-        int expected = 1;
+        int expected = 8;
         int actual = radio.getCurrentRadio();
 
         Assertions.assertEquals(expected, actual);
