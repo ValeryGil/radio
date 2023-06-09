@@ -4,62 +4,58 @@ import lombok.Getter;
 
 public class Radio {
 
+    private int maxRadio;
     private int minRadio = 0;
     private int currentRadio;
-    private int volumeRadio;
     public int maxVolume = 100;
     public int minVolume = 0;
     private int currentVolume;
 
-    public Radio(int volumeRadio) {
-        this.volumeRadio = volumeRadio;
-    }
+    /*public int getMaxRadio() { return maxRadio; }
 
-    public Radio() { }
+    public int getMinRadio() { return minRadio; }
 
-    /*public int getMinRadio() { return minRadio; }
     public int getCurrentRadio() { return currentRadio; }
-    public int getVolumeRadio() { return volumeRadio; }
+
     public int getMaxVolume() { return maxVolume; }
+
     public int getMinVolume() { return minVolume; }
+
     public int getCurrentVolume() { return currentVolume; }*/
 
-    public int getMaxRadio() { return volumeRadio - 1; }
-
-    public void setVolumeRadio(int newVolumeRadio) {
-        if (newVolumeRadio < minRadio) {
-            return;
-        }
-        volumeRadio = newVolumeRadio;
+    public Radio(int volumeRadio) {
+        this.maxRadio = volumeRadio - 1;
     }
+
+    public Radio() { this.maxRadio = 9;}
 
     public void setCurrentRadio(int newCurrentRadio) {
         if (newCurrentRadio < minRadio) {
             return;
         }
-        if (newCurrentRadio > volumeRadio - 1) {
+        if (newCurrentRadio > maxRadio) {
             return;
         }
         currentRadio = newCurrentRadio;
     }
 
     public void increaseRadio() {
-        if (currentRadio < volumeRadio - 1) {
+        if (currentRadio != maxRadio) {
             currentRadio = currentRadio + 1;
-        }
-        if (currentRadio > volumeRadio - 2) {
+        } else {
             currentRadio = minRadio;
         }
     }
 
     public void decreaseRadio() {
-        if (currentRadio > minRadio) {
+        if (currentRadio != minRadio) {
             currentRadio = currentRadio - 1;
-        }
-        if (currentRadio < 1) {
-            currentRadio = volumeRadio - 1;
+        } else {
+            currentRadio = maxRadio;
         }
     }
+
+    public void maxRadio() {currentRadio = maxRadio;}
 
     public void minRadio() {currentRadio = minRadio;}
 
@@ -74,19 +70,17 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < maxVolume) {
+        if (currentVolume != maxVolume) {
             currentVolume = currentVolume + 1;
-        }
-        if (currentVolume > 99) {
+        } else {
             currentVolume = maxVolume;
         }
     }
 
     public void decreaseVolume() {
-        if (currentVolume > minVolume) {
+        if (currentVolume != minVolume) {
             currentVolume = currentVolume - 1;
-        }
-        if (currentVolume < 1) {
+        } else {
             currentVolume = minVolume;
         }
     }
